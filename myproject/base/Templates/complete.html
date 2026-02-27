@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1 class="task-title">✅ Completed Tasks</h1>
+
+<div class="task-grid">
+    {% for task in data %}
+    <div class="task-card completed">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.desc }}</p>
+
+        <a href="{% url 'restore' task.id %}" class="btn delete-btn">Restore</a>
+        <a href="{% url 'delete_task' task.id %}" class="btn delete-btn">
+            🗑️ Trash
+        </a>
+    </div>
+    {% empty %}
+    <p class="empty-text">No completed tasks yet</p>
+    {% endfor %}
+    {% if data %}
+    <div class="task-footer">
+        <a href="{% url 'complete_del' %}" class="footer-btn delete-all-btn">
+            🗑️ Trash All
+        </a>
+        <a href="{% url 'restore_all' %}" class="footer-btn delete-all-btn">
+             Restore All
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-card">
+
+        <h2 class="login-title">Welcome Back</h2>
+
+        {% if status %}
+            <p class="login-error">Invalid Credential...</p>
+        {% endif %}
+
+        <form method="POST" class="login-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+            <div class="extra-links">
+                <a href="{% url 'forget_pass' %}" class="forgot-link">Forgot Password?</a>
+            </div>
+
+            <p class="register-link">
+                Don’t have an account?
+                <a href="{% url 'register_' %}">Register</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

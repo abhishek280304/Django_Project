@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="logo">TODO</div>
+
+    <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'add' %}">Add</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'complete' %}">Complete</a></li>
+        <li><a href="{% url 'trash' %}">Trash</a></li>
+        <li><a href="{% url 'profile'  %}">Profile</a></li>
+    </ul>
+
+    <div class="auth-links">
+        <a href="{% url 'register_' %}" class="nav-btn register">Register</a>
+        <a href="{% url 'login_' %}" class="nav-btn login">Login</a>
+        <a href="{% url 'logout_' %}" class="nav-btn login">Logout</a>
+    </div>
+</nav>

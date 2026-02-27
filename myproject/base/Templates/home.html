@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="task-container">
+
+    <h1 class="task-title">📋 Your Tasks</h1>
+
+    {% if data %}
+    <div class="task-grid">
+        {% for task in data %}
+        <div class="task-card">
+
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.desc }}</p>
+
+            <div class="task-actions">
+                <!-- Complete Button -->
+                <a href="{% url 'complete_task' task.id %}" class="task-btn complete-btn">
+                    ✅ Complete
+                </a>
+
+                <!-- Trash Button -->
+                <a href="{% url 'trash_task' task.id %}" class="task-btn delete-btn">
+                    🗑️ Trash
+                </a>
+                <!-- update button  -->
+                <a href="{% url 'update' task.id %}" class="task-btn delete-btn">
+                    Update
+                </a>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-text">No tasks added yet 😴</p>
+    {% endif %}
+
+    {% if data %}
+    <div class="task-footer">
+        <a href="{% url 'complete_all' %}" class="footer-btn complete-all-btn">
+            ✅ Complete All
+        </a>
+
+        <a href="{% url 'delete_all' %}" class="footer-btn delete-all-btn">
+            🗑️ Delete All
+        </a>
+    </div>
+    {% endif %}
+
+
+</div>
+{% endblock %}

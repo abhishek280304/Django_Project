@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-card">
+        {% if error %}
+        <h3>User Not found...</h3>
+        {% endif%}
+
+        <form method="POST" class="login-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" name="username" value="{{request.user.username}}" required>
+                <label>Username</label>
+            </div>
+
+            <button type="submit" class="login-btn">
+                Submit
+            </button>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

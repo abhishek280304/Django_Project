@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="about-container">
+
+    <h1 class="about-title">📘 About Todo</h1>
+
+    <p class="about-text">
+        <strong>Todo</strong> is a simple and efficient task management application
+        built using <b>Django</b>.  
+        It helps you organize your daily work, track progress, and stay productive.
+    </p>
+
+    <div class="about-cards">
+        <div class="about-card">
+            <h3>📝 Add Tasks</h3>
+            <p>Create tasks with a title and description to organize your work.</p>
+        </div>
+
+        <div class="about-card">
+            <h3>✅ Complete Tasks</h3>
+            <p>Mark tasks as completed once you finish them.</p>
+        </div>
+
+        <div class="about-card">
+            <h3>🗑 Trash Tasks</h3>
+            <p>Move tasks to trash instead of deleting them permanently.</p>
+        </div>
+    </div>
+
+    <p class="about-footer">
+        This project is created for learning Django and building real-world web applications.
+    </p>
+
+</div>
+{% endblock %}

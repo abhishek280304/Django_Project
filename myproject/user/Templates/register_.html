@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="register-container">
+    <div class="register-card">
+
+        <h2 class="register-title">Create Account</h2>
+
+        {% if status %}
+            <p class="error-message">Username is already exist..</p>
+        {% endif %}
+
+        <form method="POST" class="register-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" name="first_name" required>
+                <label>First Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="last_name" required>
+                <label>Last Name</label>
+            </div>
+
+            <div class="form-group">
+                <input type="email" name="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+            <p class="login-link">
+                Already have an account?
+                <a href="{% url 'login_' %}">Login</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
